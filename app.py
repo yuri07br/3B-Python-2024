@@ -1,4 +1,20 @@
 import os
+
+Automoveis = [{'nome':'Marea','categoria':'sedan','ativo':'true'},
+              {'nome':'peugeot 405','categoria':'sedan','ativo':'true'},
+              {'nome':'polo','categoria':'sedan','ativo':'true'},
+              {'nome':'santana','categoria':'sedan','ativo':'true'}
+ ]
+ 
+def exibir_subtitulo(texto):
+    os.system('cls')
+    print(texto)
+    print('')
+
+def retorna_menu_principal():
+     input('\n Digite qualquer tecla para voltar ao menu principal')
+     main()
+
 def mostrar titulo():
 print('''
 YT Mutimarcas
@@ -41,15 +57,56 @@ def opcao_invalida():
         mostrar titulo()
         
 
-if opcao_escolhida == 1:
-    print('cadastrar automoveis')
-elif opcao_escolhida == 2:
-    print('listar automoveis')
-elif opcao_escolhida == 3:
-    print('ativar/desativar narrador')
-else:
-    print('voce escolheu a opeçao', opcao_escolhida)
-else:
-finalizar_progama()
+def escolhe_opcao():
+    try:
+        opcao_escolhida = int(input('Escolha uma opção: '))
+        print('Você escolheu a opção: ', opcao_escolhida)
+
+        if opcao_escolhida == 1:
+            cadastrar_carros()
+        elif opcao_escolhida == 2:
+            mostrar_carros
+        elif opcao_escolhida == 3:
+            print('Ativar/desativar automovel')
+        elif opcao_escolhida == 4:
+            finalizar_programa()
+        else:
+            opcao_invalida()
+
+ except:
+       opcao_invalida()
+
+def cadastrar_carros():
+    exibir_subtitulo('Cadastrar automoveis')
+
+    nome_automovel = input('Digite o nome do automovel: ')
+    carros.append(nome_automovel)
+    print(f'{nome_automovel} foi adicionado a lista de automoveis')
+    input('Digite qualquer tecla para voltar')
+    main()
+
+def mostrar_carros():
+    exibir_subtitulo('Listar automoveis')
+    
+    for automovel in aultomovel:
+         print(f' - automoveis')
+
+    input('Digite qualquer tecla para voltar')
+    main()
+
+def finalizar_programa():
+        os. syatem('cls')
+        print('Finalizando programa')
+
+def opcao_invalida():
+        print('Este caracter não é permitido')
+        input('Digite qualquer tecla')
+        main()
 
 def main():
+    mostra_titulo ()
+    mostra_escolha()
+    escolhe_opcao()
+
+if __name__ == '__main__':
+    main()
